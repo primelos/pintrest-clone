@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import PinterestIcon from "@material-ui/icons/Pinterest";
 import IconButton from "@material-ui/core/IconButton";
 import SearchIcon from "@material-ui/icons/Search";
@@ -21,6 +21,14 @@ import { Icon } from '@material-ui/core';
 
 
 const Header = () => {
+  const [input, setInput] = useState('');
+
+  const onSearchSubmit = (e) => {
+    e.preventDefault()
+    console.log('input', input)
+  }
+
+
   return (
     <Wrapper>
       <LogoWrapper>
@@ -40,8 +48,8 @@ const Header = () => {
             <SearchIcon/>
           </IconButton>
           <form>
-            <input type="text"/>
-            <button type='button'></button>
+            <input type="text" onChange={(e) => setInput(e.target.value) }/>
+            <button type='submit' onClick={onSearchSubmit}></button>
           </form>
 
         </SearchBarWrapper>
