@@ -11,7 +11,7 @@ function App() {
   function getNewPins(){
     let promises = []
     let pinData = []
-    let pins = ['ocean', 'sf', 'dogs', 'tigers', 'hello']
+    let pins = ['ocean', 'sf', 'dogs', 'tigers', 'xbox', 'sports']
     pins.forEach((pinTerm) => {
       promises.push(
         getImages(pinTerm).then((res) => {
@@ -28,12 +28,14 @@ function App() {
 
   useEffect(() => {
     getNewPins()
+
   }, [])
 
   const getImages = (term) => {
     return unsplash.get("https://api.unsplash.com/search/photos", {
       params: {
-        query: term
+        query: term,
+        per_page: 30,
       }
     })
   }

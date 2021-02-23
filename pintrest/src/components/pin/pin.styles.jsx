@@ -12,13 +12,18 @@ export const Container = styled.div`
   box-sizing: border-box;
   cursor: pointer;
   width: 236px;
-  
 
   img {
     display: flex;
     width: 100%;
     cursor: zoom-in;
     border-radius: 16px;
-    object-fit: cover
+    object-fit: cover;
   }
-`
+  :hover {
+    filter: brightness(90%);
+    background-color: #000;
+  }
+`;
+
+
