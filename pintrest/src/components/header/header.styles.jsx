@@ -59,11 +59,11 @@ export const SearchBarWrapper = styled.div`
   width: 100%;
   border-radius: 50px;
   border: none;
-  padding-left: 10px
+  padding-left: 10px;
 
   form {
     display: flex;
-    flex: 1
+    flex: 1;
   }
   form > input {
     background-color: transparent;
