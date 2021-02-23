@@ -33,7 +33,8 @@ function App() {
   const getImages = (term) => {
     return unsplash.get("https://api.unsplash.com/search/photos", {
       params: {
-        query: term
+        query: term,
+        per_page: 100,
       }
     })
   }
@@ -49,9 +50,9 @@ function App() {
 
       let newPins = [ 
         ...results,
-        ...pins,
+        // ...pins,
       ]
-      newPins.sort(sortPins);
+      // newPins.sort(sortPins);
       setPins(newPins);
     })
   }

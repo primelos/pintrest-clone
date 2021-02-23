@@ -5,7 +5,7 @@ import Pin from '../pin'
 function MainBoard({ pins }) {
   return (
     <Wrapper>
-      <Container>
+      <Container >
         {
           pins.map((pin, i) => {
             let { urls } = pin;
