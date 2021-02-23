@@ -17,16 +17,19 @@ import {
   SearchBarWrapper,
   IconsWrapper,
 } from "./header.styles";
-import { Icon } from '@material-ui/core';
 
 
-const Header = () => {
+const Header = ({ onSubmit }) => {
   const [input, setInput] = useState('');
 
   const onSearchSubmit = (e) => {
     e.preventDefault()
-    console.log('input', input)
+    onSubmit(input)
+    cancelCourse()
   }
+  const cancelCourse = () => {
+    document.getElementById("create-course-form").reset();
+  };
 
 
   return (
@@ -35,7 +38,7 @@ const Header = () => {
         <IconButton>
           <PinterestIcon />
         </IconButton>
-        </LogoWrapper>
+      </LogoWrapper>
       <HomePageButton>
         <a href="/">Homepage</a>
       </HomePageButton>
@@ -45,13 +48,12 @@ const Header = () => {
       <SearchWrapper>
         <SearchBarWrapper>
           <IconButton>
-            <SearchIcon/>
+            <SearchIcon />
           </IconButton>
-          <form>
-            <input type="text" onChange={(e) => setInput(e.target.value) }/>
-            <button type='submit' onClick={onSearchSubmit}></button>
+          <form id="create-course-form">
+            <input type="text" onChange={(e) => setInput(e.target.value)} />
+            <button type="submit" onClick={onSearchSubmit}></button>
           </form>
-
         </SearchBarWrapper>
       </SearchWrapper>
       <IconsWrapper>
@@ -68,9 +70,8 @@ const Header = () => {
           <KeyboardArrowDownIcon />
         </IconButton>
       </IconsWrapper>
-      
     </Wrapper>
-  )
+  );
 }
 
 export default Header

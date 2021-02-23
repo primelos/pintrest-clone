@@ -2,11 +2,19 @@ import React from 'react'
 import { Wrapper, Container } from "./mainboard.styles";
 import Pin from '../pin'
 
-function MainBoard() {
+function MainBoard({ pins }) {
   return (
     <Wrapper>
       <Container>
-      <Pin />
+        {
+          pins.map((pin, i) => {
+            let { urls } = pin;
+            return (
+              <Pin key={i} urls={urls}/>
+            )
+          })
+        }
+        
       </Container>
     </Wrapper>
   )

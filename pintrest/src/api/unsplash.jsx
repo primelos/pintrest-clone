@@ -1,10 +1,11 @@
 import axios from 'axios';
-require("dotenv").config();
+// require("dotenv").config();
 
-
+// console.log(process.env);
+// console.log(process.env.REACT_APP_ACCESSKEY);
 export default axios.create({
   baseUrl: `https://api.unsplash.com/`,
   headers: {
-    Authorization: `Client-ID FzREGuKfJCsPMOxq1TPD7erNJ3sBimgAQblEZoZ2g6g`,
+    Authorization: `Client-ID process.env.REACT_APP_ACCESSKEY`,
   },
 });
